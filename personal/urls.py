@@ -7,7 +7,10 @@ from .forms import LoginForm
 app_name = 'personal'
 
 urlpatterns = [
+
 	url(r'^$', views.index, name='index'),
+
+	url(r'^userlounge/$', views.userarea, name='lounge'),
 
 	url(r'^contact/$', views.contact, name='contact'),
 
@@ -18,10 +21,6 @@ urlpatterns = [
 	url(r'^login/$', views.LoginFormView.as_view(), name='login'),
  
  	url(r'^logout/$', views.logoutView, name='logout'),
-
-   # url(r'^$', views.IndexView.as_view(), name = 'index'),
-    #regex 
-    #url(r'^(?P<question_id>[0-9]+)/$', views.detail, name = 'detail'),
 
 
 

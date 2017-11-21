@@ -29,8 +29,8 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
-	class Meta:
-		ordering = ['-date', '-last_modified']
+	# class Meta:
+	# 	ordering = ['-publish', '-last_modified']
 
 #method that will occur before the post is saved to generate the slug title
 def pre_save_post_receiver(sender, instance, *args, **kwargs):
@@ -42,5 +42,3 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
-
-#, storage=OverwriteStorage()

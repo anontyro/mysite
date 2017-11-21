@@ -3,74 +3,36 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-
-<style type="text/css">
-.row a {
-  background-color: transparent;
-  color: black;
-}
-.row a:hover{
-	color: white;
-}
-
-
+{% load static %}
+<style>
+    body {
+        background-image: url(static/img/personal/banner.jpg);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    .body-content {
+        width: 100%;
+        height: 100%;
+    }
+    footer{
+        background-color: transparent;
+    }
 </style>
 
-<!--first row down------------------------------------------------------------------------------------------>
-<body>
-<div class="row" id="mainpage-container" style="margin-bottom:70px; margin-top: 50px;">
-	<div class="col-md-3" id="blog-left-span"></div>
-
-	<div class="col-md-3" id="github">
-		
-		<center><a href="https://github.com/anontyro" target="blank"><i class="fa fa-github-square fa-5x" aria-hidden="true"></i></a>
-
-			<p style="font-size: 15px">Github page which contains all the good programming stuff mostly in Java
-				currently but I'm always working on new projects</p>
-			
-		</center>
-
-
-	</div>
-
-	<div class="col-md-3" id="cv">
-	{% load static %}
-		<center><a href="{% static 'doc/resume.pdf'  %}" target="blank"><i class="fa fa-paper-plane fa-5x" aria-hidden="true"></i></a>
-			<p style="font-size: 15px">Grab a copy of my resume for some goodnight reading</p>
-			</i>
-		</center>
-	</div>
-	<div class="col-md-3" id="blog-right-span"></div>
+<div id="homepage-main-text">
+    <h1 class="myFadeIn">Hi! I'm <span class="highligher" >Alex</span> a backend developer with some design flair</h1>
+    <h3 class="slideDown" >
+        Located in <span class="highligher">Singapore</span> I have experience with everything from Android 
+        development to CSS. I am largely back-end focuses as I have spent most
+        of my time with <span class="highligher">Java SE & EE</span> using Eclipse.
+    </h3>
 </div>
-
-
-<!--second row down------------------------------------------------------------------------------------------>
-
-<div class="row" id="mainpage-container" style="margin-bottom:30px;">
-	<div class="col-md-3" id="blog-left-span"></div>
-
-	<div class="col-md-3" id="blog">
-		
-		<center><a href="/blog/"><i class="fa fa-file-text fa-5x" aria-hidden="true"></i></a>
-
-			<p style="font-size: 15px">This is my blog that will contain mostly tech stuff from ideas I have to actual implementation ideas
-			and concerns I hope this is a place for me to talk about what I am doing currently in my own programming space</p>
-		</center>
-
-
-	</div>
-
-	<div class="col-md-3" id="coding"><a href="{% url 'personal:about' %}">
-<center><i class="fa fa-info-circle fa-5x" aria-hidden="true"></i>
-			<p style="font-size: 15px"></a>This is my story, if  you would like to find out a little more about me as a person then this is the 
-			place to go</p>
-			</i>
-		</center>
-	</div>
-	<div class="col-md-3" id="blog-right-span"></div>
-</div>
-
-</body>
 
 {% endblock %}
 

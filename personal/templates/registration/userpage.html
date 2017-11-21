@@ -1,0 +1,14 @@
+{% extends "personal/header.html" %}
+{% block title %} {{user.get_full_name}}'s Lounge {% endblock %}
+
+{% block content %}
+
+Welcome {{user.get_full_name}}
+
+
+{% for blog.post in object_list %}
+{{blog.post.title}}
+{%endfor%}
+
+{{blog.post.title}}
+{% endblock %}

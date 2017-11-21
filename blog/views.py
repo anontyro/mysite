@@ -40,9 +40,9 @@ class IndexView(generic.ListView):
 				).distinct()
 
 		if self.request.user.is_active or self.request.user.is_superuser: #if the user is logged in an active can view
-			return Post.objects.all()
+			return Post.objects.all().order_by('-publish')
 		else:
-			return Post.objects.active() #what the database returns
+			return list(Post.objects.active().order_by('-publish')) #what the database returns
 
 
 #the indavidual blog view

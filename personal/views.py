@@ -3,15 +3,21 @@ from django.views import generic
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
+from django.contrib.auth.decorators import login_required
 
 from .forms import UserForm, LoginForm
 
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.urlresolvers import reverse
 
+from blog.models import Post
 
 def index(request):
 	return render(request, 'personal/index.html')
+
+@login_required(redirect_field_name='personal:login')
+def userarea(request):
+	return render(request, 'registration/userpage.html')
 
 def aboutView(request):
 	return render(request, 'personal/about.html')
@@ -22,6 +28,7 @@ def contact(request):
 def logoutView(request):
 	logout(request)
 	return redirect('personal:index')
+
 
 #
 class LoginFormView(View):

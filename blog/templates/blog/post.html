@@ -7,6 +7,11 @@
 
 	
 	{% block content %}
+	<style>
+		.fb-comments, .fb-comments span, .fb-comments.fb_iframe_widget span iframe {
+			width: 97% !important;
+		}
+	</style>
 
 	<div class="row" id="blog-container">
 
@@ -19,13 +24,13 @@
 						<h1 style="font-family: 'Bangers'; font-size: 60px; color:white; text-shadow: 2px 2px black;">{{post.title}}</h1>{% if post.draft %}<h4 style="color: red">Draft</h4>{%endif%}
 					</div>
 					<div id="post-date" style="position:absolute; display: block; z-index: 3; right:8px; top: -15px;">
-						<h3 style="color:white; text-align:right; text-shadow: 2px 2px black;">Published: {{post.publish}}<br> By {{user.first_name}} {{user.last_name}}</h3>
+						<h3 style="color:white; text-align:right; text-shadow: 2px 2px black;">Published: {{post.publish}}<br> By {{post.author.get_full_name}}</h3>
 					</div>
 					
 				</div>
 				<div id="body_container" style="margin-bottom:10px; padding: 10px 10px 10px 10px;">
-				<div class="row" id="byline">
-					<div class="fb-like" style="float:left; left:20px;" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+					<div class="row" id="byline">
+						<div class="fb-like" style="float:left; left:20px;" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 					</div>
 					<hr>
 					<div class="content-markdown">{{post.body}}</div>
@@ -33,8 +38,7 @@
 					<hr>
 					<div style="float:right;" id="last-edit">{% if post.last_modified != null %}<p style="font-size:12px; color:green;">Last edited: {{post.last_modified}}</p>{%endif%}</div>
 
-
-					<div class="fb-comments" style="left:20px;" data-href="{{request.build_absolute_uri}}" data-numposts="5"></div>
+					<div class="fb-comments" style="left:30px;" data-href="{{request.build_absolute_uri}}" data-numposts="5" data-width="800"></div>
 				</div>
 			</div>
 		</div>
