@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'pagedown', #third party
     'blog',
     'personal',
+    'portfolio',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

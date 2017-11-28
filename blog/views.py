@@ -55,7 +55,8 @@ class BlogCreate(LoginRequiredMixin, CreateView):
 	form_class = PostForm
 	model = Post
 
-	def get_form(self, form_class):
+	def get_form(self, form_class=None): 
+		if form_class is None: form_class = self.get_form_class()
 		form = super(BlogCreate, self).get_form(form_class)
 		form.fields['publish'] = forms.DateField(widget=forms.SelectDateWidget)
 		form.fields['body'] = forms.CharField(widget=PagedownWidget)
@@ -68,7 +69,7 @@ class BlogUpdate(LoginRequiredMixin, UpdateView):
 	form_class = PostForm
 	model = Post
 
-	def get_form(self, form_class):
+	def get_form(self, form_class=None):
 		form = super(BlogUpdate, self).get_form(form_class)
 		form.fields['publish'] = forms.DateField(widget=forms.SelectDateWidget)
 		form.fields['body'] = forms.CharField(widget=PagedownWidget)

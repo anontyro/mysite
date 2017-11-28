@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^polls/', include ('polls.urls')),
     url(r'^', include ('personal.urls', namespace = 'splash')),
     url(r'^blog/', include ('blog.urls', namespace = 'posts')),
+    url(r'^portfolio/', include ('portfolio.urls', namespace = 'portfolio')),    
 
 ]
 
