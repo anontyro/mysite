@@ -9,4 +9,6 @@ app_name = 'portfolio'
 urlpatterns = [
 	url(r'^$', views.Index.as_view(), name='index'),
 
+    url(r'add/$',views.PortfolioCreate.as_view(), name='add-portfolio')
+
     ]
