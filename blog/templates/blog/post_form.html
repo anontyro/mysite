@@ -10,12 +10,10 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="row" id="blog-container">
-	<div class="col-md-3" id="blog-left=span">
-		
-	</div>
-	<div class="col-md-6" id="blog-main-container">
+
+	<div class="blog-main-container" id="blog-main-container">
 		<div class="panel panel-success">
-			<div class="panel-heading"><h4>Blog edit view<h4>
+			<div class="panel-heading"><h4>Blog Edit View<h4>
 			</div>
 
 			<div class="panel-body">
@@ -28,7 +26,6 @@
 						<input type='submit' value='Create Post' />
 					</div>
 					</div>
-
 
 				</form>
 

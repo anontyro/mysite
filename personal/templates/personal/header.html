@@ -14,7 +14,7 @@
 	<script src="https://use.fontawesome.com/fc41b66700.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Ruda:900|Titillium+Web:600" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
 
@@ -25,27 +25,21 @@
 				var markedContent = marked(content)
 				$(this).html(markedContent)
 			})
-
 			$(".content-markdown img").each(function(){
 				$(this).addClass("img-responsive");
 			})
-
 		})
-
 	</script>	
 
 	{% load staticfiles %}
 	<link rel='stylesheet' href="{% static 'css/animations.css' %}" type='text/css'/>
 	<link rel='stylesheet' href="{% static 'css/site.css' %}" type='text/css'/>
 
-
-
 {% block head_extra %} {% endblock %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="https://alexwilkinson.co/media/icon.png">
 <meta name="google-site-verification" content="181aV7AsGzfRWwFQhxojrp4ZQu_Lrn4_r0Kbz9zGCo8" />
 </head>
-
 
 <nav class="navbar navbar-inverse">
 	<div class="container">
@@ -69,19 +63,27 @@
 				<li><a href="{% url 'personal:about' %}">About</a></li>
 			</ul>
 
-
 			<ul class="navbar-right">
-
 
 				{% if user.is_authenticated %}
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{% url 'personal:index' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;{{user.username}}</a></li>
-					<li><a href="{% url 'blog:add-blog' %}"><i class="fa fa-pencil"></i>  new post</a></li>
-					<li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; logout</a></li>
+					<!-- <li><a href="{% url 'personal:index' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;{{user.username}}</a></li> -->
+					
+					<li class="dropdown username-login-tools">
+							<!-- <a href="{% url 'personal:index' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> -->
+							<a class="dropdown-toggle " data-toggle="dropdown" href="#">{{user.username}}
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="{% url 'blog:add-blog' %}"><i class="fa fa-pencil"></i>  New Post</a></li>
+								<li><a href="{% url 'portfolio:add-portfolio' %}"><i class="fa fa-code"></i>  Add Portfolio</a></li>								
+
+							</ul>
+						  </li>
+					<li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout</a></li>
 				</ul>
 				{% else %}
 				<ul class="nav navbar-nav">
-					<li><a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; login</a></li>
+					<li><a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Login</a></li>
 				</ul>
 				{%endif%}
 			</ul>
@@ -92,24 +94,22 @@
 
 
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
+	<script>
+	(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) return;
 		js = d.createElement(s); js.id = id;
 		js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
 		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 
+	<div class="container-fluid main-page-content">
+		{%block content%}
 
-		<div class="container-fluid">
-			{%block content%}
-
-			{% endblock %}
-		</div>
+		{% endblock %}
 	</div>
-<br><br><br><br>
-</body>
-
+	
 <!---background-color: #F2F20F -->
 <div class="footer-container">
         <footer class="text-center">
@@ -133,11 +133,9 @@
             </div>
 				All rights reserved Alex Wilkinson {% now "Y" %} &#169 Site <br>
 				<a href="{% url 'personal:about' %}#update">Version 1.1.0</a>
-			</p>
-		</div>
-	</footer>
+		</footer>
 </div>
-
+</body>
 </html>
 
 
