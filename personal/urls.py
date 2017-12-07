@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.urls import path, re_path, include
 from . import views
 from .forms import LoginForm
 
@@ -8,19 +8,19 @@ app_name = 'personal'
 
 urlpatterns = [
 
-	url(r'^$', views.index, name='index'),
+	re_path(r'^$', views.index, name='index'),
 
-	url(r'^userlounge/$', views.userarea, name='lounge'),
+	re_path(r'^userlounge/$', views.userarea, name='lounge'),
 
-	url(r'^contact/$', views.contact, name='contact'),
+	re_path(r'^contact/$', views.contact, name='contact'),
 
-	url(r'^register/$', views.UserFormView.as_view(), name='register'),
+	re_path(r'^register/$', views.UserFormView.as_view(), name='register'),
 
-	url(r'^about/$', views.aboutView, name='about'),
+	re_path(r'^about/$', views.aboutView, name='about'),
 
-	url(r'^login/$', views.LoginFormView.as_view(), name='login'),
+	path('login', views.LoginFormView.as_view(), name='login'),
  
- 	url(r'^logout/$', views.logoutView, name='logout'),
+ 	re_path(r'^logout/$', views.logoutView, name='logout'),
 
 
 

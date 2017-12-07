@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils import timezone
 from django.conf import settings
 from django.db.models.signals import pre_save #allows models to be altered before being saved
@@ -18,7 +18,7 @@ class Post(models.Model):
 	draft = models.BooleanField(default = True)
 	publish = models.DateField(auto_now=False, auto_now_add=False)
 	last_modified = models.DateTimeField(blank=True, auto_now = True, null=True)
-	author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 	cover_img = models.FileField(default='/media/default.png', storage=OverwriteStorage())
 
 	objects = PostManager()
