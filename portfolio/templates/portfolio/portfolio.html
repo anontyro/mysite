@@ -3,12 +3,14 @@
 
 {% block content %}
 
-<div class="class-main-portfolio-container">
+<div class="class-main-portfolio-container" id="portfolioList">
 	{% for port in portfolio_list %}
 
 	<h3>{{port.title}}</h3>
 
 	{% endfor %}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="/static/portfolio/js/portfolio-list.js"></script>
 
 {% endblock %}

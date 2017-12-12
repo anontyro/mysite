@@ -49,12 +49,15 @@ ul.nav a {
     font-size: 22px;
 }
 
-    ul.nav a:hover {
-        color: #526D87 !important;
-        border-width: 0px;
-        border-style: solid;
-        background-color: transparent;
-    }
+ul.nav a:hover {
+    color: #526D87 !important;
+    border-width: 0px;
+    border-style: solid;
+    background-color: transparent;
+}
+ul.navbar-right {
+    margin-top: -3px;
+}
 
 .navbar-brand {
     font-size: 30px;
