@@ -5,9 +5,10 @@
 
 <div class="class-main-portfolio-container" id="portfolioList">
 	{% for port in portfolio_list %}
-
+	<p>{{tags}}</p>
 	<h3>{{port.title}}</h3>
-
+	<p>{{port.body| safe|slice:":500"}}</p>
+	<p><i class="fa  fa-group"></i> By: {{port.author.get_full_name}} </p>
 	{% endfor %}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>

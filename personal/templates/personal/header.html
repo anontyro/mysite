@@ -58,7 +58,7 @@
 		<div class="navbar-collapse collapse" id="main-nav">
 			<ul class="nav navbar-nav">
 				<li><a href="{% url 'blog:blog_list' %}">Blog</a></li>
-				<li><a href="{% url 'portfolio:index' %}">Portfolio</a></li>				
+				<li><a href="{% url 'portfolio:portfolios' %}">Portfolio</a></li>				
 				<li><a href="{% static 'doc/resume.pdf' %}" target="blank">Resume</a></li>
 				<li><a href="{% url 'personal:about' %}">About</a></li>
 			</ul>
@@ -131,8 +131,8 @@
                     <i class="fa fa-twitter-square fa-3x"></i>
                 </a>
             </div>
-				All rights reserved Alex Wilkinson {% now "Y" %} &#169 Site <br>
-				<a href="{% url 'personal:about' %}#update">Version 1.1.0</a>
+				All rights reserved Alex Wilkinson {% now "Y" %} &#169  <br>
+				<a href="{% url 'personal:about' %}#update">Version 2.0.0</a>
 		</footer>
 </div>
 

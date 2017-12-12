@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.urls import path, re_path, include
 from django.views.generic import ListView, DeleteView, DetailView
 from . import views
 
@@ -7,8 +7,11 @@ from . import views
 app_name = 'portfolio'
 
 urlpatterns = [
-	url(r'^$', views.Index.as_view(), name='index'),
+	re_path(r'^$', views.Index.as_view(), name='portfolios'),
 
-    url(r'add/$',views.PortfolioCreate.as_view(), name='add-portfolio')
+    re_path(r'add/$',views.PortfolioCreate.as_view(), name='add-portfolio'),
 
+	re_path(r'^(?P<slug>[\w-]+)/$',views.DetailView.as_view(), name='view-portfolio'),
+
+	# re_path(r'^update/(?P<slug>[\w-]+)/$',views.PortfolioUpdate.as_view(), name='update-portfolio'),
     ]
