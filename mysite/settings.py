@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'blog',
     'personal',
     'portfolio',
+    'myapi.apps.MyapiConfig',
     'polls.apps.PollsConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,3 +140,9 @@ MEDIA_URL = '/media/'
 INTERNAL_IPS = (
     '127.0.0.1',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASS': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
