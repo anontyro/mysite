@@ -192,6 +192,39 @@ ul.navbar-right {
 
 /*Portfoliopage Style*/
 
+.portfolio-list-page{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: auto;
+}
+
+.main-portfolio-subheader{
+    display: flex;
+    flex-wrap: wrap;
+}
+.main-portfolio-author{
+    width: 50%;
+}
+.main-portfolio-publish{
+    width: 50%;
+    text-align: right;
+}
+
+.main-portfolio-container{
+    width: 45%;
+    margin: 20px;
+}
+.main-portfolio-btns{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+    .main-portfolio-container{
+        width: 100%;
+    }
+}
 /*Aboutpage Style*/
 #aboutpage-main-text {
     display: block;

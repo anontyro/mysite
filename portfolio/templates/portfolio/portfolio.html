@@ -7,23 +7,36 @@
 		<div class="main-portfolio-container">
 			
 			<div class="main-portfolio-header">
-	
+				<h3 class='main-portfolio-title'>{{port.title}}</h3>
+				<div class="main-portfolio-subheader">
+					<p class='main-portfolio-author'><i class="fa  fa-group"></i> By: {{port.author.get_full_name}} </p>
+					<p class='main-portfolio-publish'><i class="fa fa-calendar-o"></i> On: {{port.publish}}</p>
+				</div>
 			</div>
-			<div class="portfolio-container">
-	
+			<div class="main-portfolio-body">
+				<div class="main-portfolio-img">
+					<img src="{{port.image.url}}" class="img-responsive" />
+				</div>
+				<div class="main-portfolio-blurb ">
+					<p>{{port.body| safe|slice:":500"}}...</p>
+					{%if port.draft%}<h4>Draft</h4>{% endif %}
+				</div>
 			</div>
-			<p>{{port.tags}}</p>
-			<p>{{port.publish}}</p>
-			<h3>{{port.title}}</h3>
-			<p>{{port.body| safe|slice:":500"}}</p>
-			<p><i class="fa  fa-group"></i> By: {{port.author.get_full_name}} </p>
-			<div class="blog-list-contiune">
-				<a href="/portfolio/{{port.slug}}" class="blog-btn-style">Contiune Reading</a>
+			<div class="main-portfolio-footer">
+				<div class="main-portfolio-btns">
+					<div class="blog-list-contiune">
+						<a href="/portfolio/{{port.slug}}" class="blog-btn-style">Contiune Reading</a>
+					</div>
+					<div class="blog-list-contiune">
+						<a href="{{port.gitLink}}" class="blog-btn-style">View Project</a>
+					</div>
+				</div>
+				<p class='main-port-tags'>{{port.tags}}</p>
+			{%If user.is_authenticated %}
+
+			{% endif %}
 			</div>
-			<div class="blog-list-contiune">
-				<a href="{{port.gitLink}}" class="blog-btn-style">View Project</a>
-			</div>
-			<p>{{port.draft}}</p>
+
 		</div>
 	{% endfor %}
 </div>

@@ -14,7 +14,13 @@ class Index(generic.ListView):
 	paginate_by = 10
 
 	def get_queryset(self):
-
+		query = self.request.GET.get('q')
+		if query:
+			return Portfolio.objects.active().filter(
+				Q(title_icontains = query) |
+				Q(body_icontains = query)
+				).distinct()
+				
 		if self.request.user.is_active or self.request.user.is_superuser:
 			return Portfolio.objects.all().order_by("-publish")[:25]
 		else:
