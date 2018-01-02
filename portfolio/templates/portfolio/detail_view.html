@@ -1,0 +1,6 @@
+{% extends "personal/header.html" %}
+{% block title %}Portfolio | {{portfolio.title|slice:":30"}}...{% endblock %}
+
+{% block content %}
+<h1>{{portfolio.title}}</h1>
+{% endblock %}

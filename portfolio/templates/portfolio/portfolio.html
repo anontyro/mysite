@@ -9,6 +9,9 @@
 	<h3>{{port.title}}</h3>
 	<p>{{port.body| safe|slice:":500"}}</p>
 	<p><i class="fa  fa-group"></i> By: {{port.author.get_full_name}} </p>
+	<div class="blog-list-contiune">
+		<a href="/portfolio/{{port.slug}}" class="blog-btn-style">Contiune Reading</a>
+	</div>
 	{% endfor %}
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
