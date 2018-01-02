@@ -2,19 +2,32 @@
 {% block title %}Portfolio{% endblock %}
 
 {% block content %}
-
-<div class="class-main-portfolio-container" id="portfolioList">
+<div class="portfolio-list-page">
 	{% for port in portfolio_list %}
-	<p>{{tags}}</p>
-	<h3>{{port.title}}</h3>
-	<p>{{port.body| safe|slice:":500"}}</p>
-	<p><i class="fa  fa-group"></i> By: {{port.author.get_full_name}} </p>
-	<div class="blog-list-contiune">
-		<a href="/portfolio/{{port.slug}}" class="blog-btn-style">Contiune Reading</a>
-	</div>
+		<div class="main-portfolio-container">
+			
+			<div class="main-portfolio-header">
+	
+			</div>
+			<div class="portfolio-container">
+	
+			</div>
+			<p>{{port.tags}}</p>
+			<p>{{port.publish}}</p>
+			<h3>{{port.title}}</h3>
+			<p>{{port.body| safe|slice:":500"}}</p>
+			<p><i class="fa  fa-group"></i> By: {{port.author.get_full_name}} </p>
+			<div class="blog-list-contiune">
+				<a href="/portfolio/{{port.slug}}" class="blog-btn-style">Contiune Reading</a>
+			</div>
+			<div class="blog-list-contiune">
+				<a href="{{port.gitLink}}" class="blog-btn-style">View Project</a>
+			</div>
+			<p>{{port.draft}}</p>
+		</div>
 	{% endfor %}
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script src="/static/portfolio/js/portfolio-list.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="/static/portfolio/js/portfolio-list.js"></script>
 {% endblock %}

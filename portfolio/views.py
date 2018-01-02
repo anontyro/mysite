@@ -11,8 +11,16 @@ class Index(generic.ListView):
 	template_name = 'portfolio/portfolio.html'
 	context_object_name = 'portfolio_list'
 
+	paginate_by = 10
+
 	def get_queryset(self):
-		return Portfolio.objects.all().order_by("-date")[:25]
+
+		if self.request.user.is_active or self.request.user.is_superuser:
+			return Portfolio.objects.all().order_by("-publish")[:25]
+		else:
+			return list(Portfolio.objects.active().order_by('-publish'))
+
+		
 
 class DetailView(generic.DetailView):
 	model = Portfolio
