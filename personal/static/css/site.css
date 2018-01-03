@@ -211,18 +211,45 @@ ul.navbar-right {
     text-align: right;
 }
 
+.main-portfolio-blurb{
+    margin-top: 10px;
+}
+
 .main-portfolio-container{
+    position: relative;
     width: 45%;
     margin: 20px;
+    max-width: 780px;
+    max-height: 650px;
+    min-height: 650px;
 }
+
+.main-portfolio-footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
 .main-portfolio-btns{
     display: flex;
     flex-wrap: wrap;
 }
 
+.portfolio-admin-controls{
+    display: flex;
+    flex-wrap: wrap;
+}
+.portfolio-delete-button{
+    border-left: #426e96 solid 1px;
+}
+
 @media (max-width: 1000px) {
     .main-portfolio-container{
         width: 100%;
+        max-height: unset;
+    }
+    .main-portfolio-footer{
+        position: relative;
     }
 }
 /*Aboutpage Style*/

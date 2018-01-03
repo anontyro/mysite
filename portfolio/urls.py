@@ -13,5 +13,7 @@ urlpatterns = [
 
 	re_path(r'^(?P<slug>[\w-]+)/$',views.DetailView.as_view(), name='view-portfolio'),
 
-	# re_path(r'^update/(?P<slug>[\w-]+)/$',views.PortfolioUpdate.as_view(), name='update-portfolio'),
+	re_path(r'^update/(?P<slug>[\w-]+)/$',views.PortfolioUpdate.as_view(), name='update-portfolio'),
+
+	re_path(r'^delete/(?P<pk>[\d]+)/$',views.PortfolioDelete.as_view(), name='delete-portfolio')
     ]

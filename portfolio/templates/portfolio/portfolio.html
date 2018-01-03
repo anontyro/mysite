@@ -32,9 +32,27 @@
 					</div>
 				</div>
 				<p class='main-port-tags'>{{port.tags}}</p>
-			{%If user.is_authenticated %}
 
-			{% endif %}
+				{%if user.is_authenticated %}
+					<div class="portfolio-admin-controls">
+						<div class="portfolio-edit-button">
+							<form action="{% url 'portfolio:update-portfolio' port.slug %}" method="get">
+								{% csrf_token %}
+								<input type="hidden" name="portfolio_id" value="{{port.slug}}" />
+								<button type="submit" class="btn btn-link">Edit</button>
+							</form>
+						</div>
+						<div class="portfolio-delete-button">
+							<form action="{% url 'portfolio:delete-portfolio' port.id %}" method="get">
+								{% csrf_token %}
+								<input type="hidden" name="portfolio_id" value="{{port.id}}" />
+								<button type="submit" class="btn btn-link" 
+								onclick="if(!(confirm('Are you sure you want to delete the post?'))) return false">Delete</button>
+							</form>
+						</div>
+					</div>
+				{% endif %}
+
 			</div>
 
 		</div>

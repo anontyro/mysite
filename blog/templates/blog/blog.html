@@ -58,7 +58,7 @@
 		        <form action="{% url 'blog:update-blog' post.slug %}" method ="get">
 					{% csrf_token %}
 					<input type="hidden" name="blog_id" value="{{post.slug}}"/>
-					<button tpye="submit" class="btn btn-link">Edit</button> 
+					<button type="submit" class="btn btn-link">Edit</button> 
 				</form>
 			</div>
 
@@ -66,7 +66,7 @@
 				<form action="{% url 'blog:delete-blog' post.id %}" method ="POST">
 					{% csrf_token %}
 					<input type="hidden" name="blog_id" value="{{post.id}}"/>
-					| <button tpye="submit" class="btn btn-link" 
+					| <button type="submit" class="btn btn-link" 
 					onclick="if(!(confirm('Are you sure you want to delete the post?'))) return false">Delete</button>
 				</form>
 			</div>

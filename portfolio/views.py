@@ -33,7 +33,7 @@ class DetailView(generic.DetailView):
 	template_name = 'portfolio/detail_view.html'
 
 class PortfolioCreate(LoginRequiredMixin, CreateView):
-	login_url = 'personal: login'
+	login_url = 'personal:login'
 	form_class = PortfolioForm
 	model = Portfolio
 
@@ -42,3 +42,17 @@ class PortfolioCreate(LoginRequiredMixin, CreateView):
 		form = super(PortfolioCreate, self).get_form(form_class)
 		# form.fields['body'] = forms.CharField(widget=PagedownWidget)
 		return form
+
+class PortfolioUpdate(LoginRequiredMixin, UpdateView):
+	login_url = 'personal:login'
+	form_class = PortfolioForm
+	model = Portfolio
+
+	def get_form(self, form_class=None):
+		form = super(PortfolioUpdate, self).get_form(form_class)
+		return form
+
+class PortfolioDelete(LoginRequiredMixin, DeleteView):
+	login_url = 'personal:login'
+	model = Portfolio
+	success_url = reverse_lazy('portfolio:portfolios')
