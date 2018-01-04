@@ -243,6 +243,31 @@ ul.navbar-right {
     border-left: #426e96 solid 1px;
 }
 
+.detail-portfolio-container{
+    width: 75%;
+    margin: auto;
+}
+.detail-portfolio-header{
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 18px 7px 60px -10px black;
+}
+.detail-portfolio-title{
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    text-shadow: 3px 2px 3px #191547;
+}
+.detail-portfolio-link-btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 @media (max-width: 1000px) {
     .main-portfolio-container{
         width: 100%;

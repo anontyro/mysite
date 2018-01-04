@@ -2,5 +2,26 @@
 {% block title %}Portfolio | {{portfolio.title|slice:":30"}}...{% endblock %}
 
 {% block content %}
-<h1>{{portfolio.title}}</h1>
+
+<div class="detail-portfolio-container">
+<div class="detail-portfolio-header" style="background: url('{{portfolio.image.url}}')">
+    <div class="detail-portfolio-title">
+        <h1 class="highligher">{{portfolio.title}}</h1>
+    </div>
+    <div class="detail-portfolio-link-btn">
+            <a href="{{portfolio.gitLink}}" class="blog-btn-style">View Project</a>
+    </div>
+</div>
+<div class="detail-portfolio-body">
+    <div class="content-markdown portfolio-main-text">{{portfolio.body}}</div>
+</div>
+<div class="detail-portfolio-code">
+
+</div>
+</div>
+
+
+
+
+
 {% endblock %}
