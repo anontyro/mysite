@@ -12,36 +12,57 @@
 			width: 97% !important;
 		}
 	</style>
+	<div class="blog-detail-main-container">
+		<div class="blog-detail-header" style="background: url('{{post.cover_img.url}}');background-size: cover;">
+			<div class="blog-detail-title">
+					<h1 class="highligher">{{post.title}}</h1>{% if post.draft %}<h4 class="blog-draft">Draft</h4>{%endif%}
+			</div>
 
-	<div class="row" id="blog-container">
-
-		<div class="blog-detail-main-container" id="blog-main-container">
-			<div class="panel panel-success">
-				<div class="panel-heading" style="position: relative; background: url('{{post.cover_img.url}}'); width:100%; height:300px; display:block;">
-
-					<!-- <span><center><img src=" {{post.cover_img.url}}" style="width:100%; max-height: 300px;"></img></center></span> -->
-					<div id="post-title" style="position: absolute; float: left; z-index: 3; left: 10px; bottom: -10px;">
-						<h1 style="font-family: 'Bangers'; font-size: 60px; color:white; text-shadow: 2px 2px black;">{{post.title}}</h1>{% if post.draft %}<h4 style="color: red">Draft</h4>{%endif%}
-					</div>
-					<div id="post-date" style="position:absolute; display: block; z-index: 3; right:8px; top: -15px;">
-						<h3 style="color:white; text-align:right; text-shadow: 2px 2px black;">Published: {{post.publish}}<br> By {{post.author.get_full_name}}</h3>
-					</div>
-					
+		</div>
+		<div class="blog-detail-byline" id="byline">
+			<div class="blog-detail-byline-container">
+				<div class="fb-like blog-detail-fb-bar" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+				<div class="blog-detail-info">
+					<p class="blog-detail-info-para"><i class="fa fa-calendar-o"></i> On: {{post.publish}} <i class="fa  fa-group"></i> By: {{post.author.get_full_name}} </p>
 				</div>
-				<div id="body_container" style="margin-bottom:10px; padding: 10px 10px 10px 10px;">
-					<div class="row" id="byline">
-						<div class="fb-like" style="float:left; left:20px;" data-href="{{request.build_absolute_uri}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-					</div>
-					<hr>
-					<div class="content-markdown">{{post.body}}</div>
-
-					<hr>
-					<div style="float:right;" id="last-edit">{% if post.last_modified != null %}<p style="font-size:12px; color:green;">Last edited: {{post.last_modified}}</p>{%endif%}</div>
-
-					<div class="fb-comments" style="left:30px;" data-href="{{request.build_absolute_uri}}" data-numposts="5" data-width="800"></div>
+			</div>
+			<hr class="byline-rule">
+		</div>
+		<div class="blog-detail-text-body">
+			<div class="content-markdown">{{post.body}}</div>
+			<hr class="byline-rule">
+			
+			<div class="blog-detail-text-end">
+				{% if post.last_modified != null %}
+				<div class="blog-detail-edit">
+					<p class="blog-detail-last-edit highligher">Last edited: {{post.last_modified}}</p>
 				</div>
+				{%endif%}
+
+				{% if user.is_authenticated %}
+				<div class="blog-detail-admin-controls">
+					<div class="blog-detail-edit-button">
+						<form action="{% url 'blog:update-blog' post.slug %}" method="get">
+							{% csrf_token %}
+							<input type="hidden" name="blog_id" value="{{post.slug}}" />
+							<button type="submit" class="btn btn-link">Edit</button>
+						</form>
+					</div>
+					<div class="blog-detail-delete-button">
+						<form action="{% url 'blog:delete-blog' post.id %}" method="get">
+							{% csrf_token %}
+							<input type="hidden" name="blog_id" value="{{post.id}}" />
+							<button type="submit" class="btn btn-link" 
+							onclick="if(!(confirm('Are you sure you want to delete the post?'))) return false">Delete</button>
+						</form>
+					</div>
+				</div>
+				{% endif %}
+
+			</div>
+			<div class="fb-comments blog-detail-body-fb-comments" style="width:100% important!" data-href="{{request.build_absolute_uri}}" data-numposts="5" data-width="800">
+
 			</div>
 		</div>
 	</div>
-
 	{% endblock %}
