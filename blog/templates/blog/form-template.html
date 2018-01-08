@@ -1,10 +1,14 @@
 {% for field in form %}
-<div class="form-group">
-	<div><span class="text-danger small">{{field.error}}</span>
+<div class="blog-add-form-section">
+	<div>
+		<span class="text-danger small">{{field.error}}</span>
 	</div>
 
-	<label class="control-label col-sm-2">{{field.label_tag}}</label>
-	<div>{{field}}
+	<label class="control-label ">
+		{{field.label_tag}}
+	</label>
+	<div>
+		{{field}}
 	</div>
 
 </div>

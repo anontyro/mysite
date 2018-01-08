@@ -17,7 +17,7 @@ body {
     flex-direction: column;
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: rgb(41, 41, 41);
+    background-color: rgb(41, 41, 41) !important;
     overflow-x: hidden;
 }
 
@@ -189,6 +189,7 @@ ul.navbar-right {
 
 #blog-container{
     width: 700px;
+    margin-left: 50px;
 }
 /* Blog post page */
 
@@ -360,11 +361,7 @@ h2 {
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+
 
 /* buttons and links extension to use brackets: [ click me ] */
 .btn-bracketed::before {
@@ -486,4 +483,22 @@ footer p {
 #pagination-total-count {
     float: left;
     margin-left: 30px;
+}
+
+
+/* -----------------Additional Styles---------------- */
+
+/* Markdown Styles */
+/* markdown control styles */
+div#id_body_wmd_button_bar {
+    background-color: white;
+}
+
+ul#wmd-button-row {
+    height: 30px;
+    padding: 5px;
+}
+/* markdown preview panel */
+.wmd-panel {
+    padding: 5px;
 }

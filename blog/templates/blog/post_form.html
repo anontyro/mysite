@@ -9,32 +9,25 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="row" id="blog-container">
-
+<div class="blog-add-container" id="blog-container">
 	<div class="blog-main-container" id="blog-main-container">
-		<div class="panel panel-success">
-			<div class="panel-heading"><h4>Blog Edit View<h4>
-			</div>
+		<div class="panel-heading">
+			<h4>Blog Edit View<h4>
+		</div>
 
-			<div class="panel-body">
-				
-				<form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
-					{% csrf_token %}
-					{% include 'blog/form-template.html' %}
-					<div class="col-md-6">
-					<div class="form-group" style="float:center;">
-						<input type='submit' value='Create Post' />
-					</div>
-					</div>
-
-				</form>
-
-			</div>
+		<div class="blog-add-body">
+			<form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% include 'blog/form-template.html' %}
+				<div class="blog-add-create-btn">
+					<input type='submit' value='Create Post' />
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
 {% else %}
-<p> please <a href="/login">login</a> to view</p>
+<p> please <a href="/login">login</a> to add a new post</p>
 
 {%endif%}
 {% endblock %}
