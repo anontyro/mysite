@@ -27,7 +27,7 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace = 'posts')),
     path('portfolio/', include('portfolio.urls', namespace = 'portfolio')),    
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # path('api/', include('myapi.urls', namespace='myapi'))
+    path('api/', include('myapi.urls', namespace='myapi'))
 ]
 
 if settings.DEBUG:
