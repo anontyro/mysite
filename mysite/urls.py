@@ -17,6 +17,7 @@ from django.urls import path, re_path, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_jwt.views import *
 
 app_name='mysite'
 
@@ -27,7 +28,11 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace = 'posts')),
     path('portfolio/', include('portfolio.urls', namespace = 'portfolio')),    
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api/', include('myapi.urls', namespace='myapi'))
+    path('api/', include('myapi.urls', namespace='myapi')),
+    path('api-token/', obtain_jwt_token),
+    path('api-token-refresh/', refresh_jwt_token),   
+    path('api-token-verify/', verify_jwt_token),    
+     
 ]
 
 if settings.DEBUG:
