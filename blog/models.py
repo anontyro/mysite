@@ -19,7 +19,7 @@ class Post(models.Model):
 	publish = models.DateField(auto_now=False, auto_now_add=False)
 	last_modified = models.DateTimeField(blank=True, auto_now = True, null=True)
 	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
-	cover_img = models.FileField(default='/media/default.png', storage=OverwriteStorage())
+	cover_img = models.FileField(default='/default.png', storage=OverwriteStorage())
 
 	objects = PostManager()
 
