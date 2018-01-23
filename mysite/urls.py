@@ -13,7 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from personal import views as personal_views
 from django.urls import path, re_path, include
+from django.conf.urls import handler404, handler500
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
@@ -34,6 +36,8 @@ urlpatterns = [
     path('api-token-verify/', verify_jwt_token),    
      
 ]
+handler404 = personal_views.error_404
+handler500 = personal_views.error_500
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

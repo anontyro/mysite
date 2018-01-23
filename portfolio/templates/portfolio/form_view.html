@@ -1,0 +1,16 @@
+<div class="main-portfolio-add-form">
+
+    {% for field in form %}
+    <div class="input-group form-container">
+        <label class="form-label">{{field.label_tag}}</label>
+        <div class="main-field-container">
+            {{field}}
+            <div class="field-error">
+                 {{field.error}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    
+</div>

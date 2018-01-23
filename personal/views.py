@@ -29,6 +29,13 @@ def logoutView(request):
 	logout(request)
 	return redirect('personal:index')
 
+def error_404(request):
+	data = {}
+	return render(request, 'personal/error_404.html', data)
+
+def error_500(request):
+	data ={}
+	return render(request, 'personal/error_500.html', data)
 
 #
 class LoginFormView(View):

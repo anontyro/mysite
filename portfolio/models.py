@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from blog.storage import OverwriteStorage
 from django.utils import timezone
 from django.utils.text import slugify
@@ -17,17 +18,17 @@ class Portfolio(models.Model):
 	body = models.TextField()
 	slug = models.SlugField(unique=True)
 	draft = models.BooleanField(default = True)
-	publish = models.DateField(auto_now=False, auto_now_add=False)
+	publish = models.DateField(default=timezone.now)
 	date = models.DateTimeField(default=timezone.now)
 	author =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 	tags = models.TextField()
 	gitLink = models.URLField()
-	image = models.FileField(default='/media/default.png', storage=OverwriteStorage())
+	image = models.FileField(default='/default.png', storage=OverwriteStorage())
 
 	objects = PostManager()
 	
 	def get_absolute_url(self):
-		return reverse('portfolio:portfolios',kwargs={'slug':self.slug}) #must give the views a name to correctly import as from urls(blog) the detailed url link
+		return reverse('portfolio:view-portfolio',kwargs={'slug':self.slug}) #must give the views a name to correctly import as from urls(blog) the detailed url link
 
 	def __str__(self):
 		return self.title

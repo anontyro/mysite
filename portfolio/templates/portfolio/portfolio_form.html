@@ -1,5 +1,5 @@
 {% extends "personal/header.html" %}
-{% block title %} Add new post {% endblock %}
+{% block title %} Add new Portfolio {% endblock %}
 
 {% block head_extra %}
 
@@ -10,7 +10,13 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="portfolio-create-container">
-    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include 'portfolio/form_view.html' %}
+        <div class="portfolio-add-btn">
+                <input type='submit' value='Create Portfolio' />
+        </div>
+    </form>
 </div>
 {% else %}
 <p> please <a href="/login">login</a> to view</p>

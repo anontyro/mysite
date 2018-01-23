@@ -335,6 +335,34 @@ ul.navbar-right {
         position: relative;
     }
 }
+
+/* Portfolio Add Form */
+.main-portfolio-add-form {
+    width: 85%;
+    margin: auto;
+}
+.input-group.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+label.form-label {
+    width: 10%;
+}
+.main-field-container {
+    width: 100%;
+}
+input#id_title {
+    width: 50%;
+}
+input#id_gitLink {
+    width: 50%;
+}
+textarea#id_tags {
+    width: 100%;
+}
+
 /*Aboutpage Style*/
 #aboutpage-main-text {
     display: block;
@@ -343,7 +371,6 @@ ul.navbar-right {
 .about-page-update-log{
     padding-left: 20px;
 }
-
 
 .highligher {
     color: #4196ea;
@@ -491,6 +518,9 @@ footer p {
 /* Markdown Styles */
 /* markdown control styles */
 div#id_body_wmd_button_bar {
+    background-color: white;
+}
+div#id_code_wmd_button_bar {
     background-color: white;
 }
 
