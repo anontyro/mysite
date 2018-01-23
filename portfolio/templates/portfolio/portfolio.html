@@ -3,6 +3,9 @@
 
 {% block content %}
 <div class="portfolio-list-page">
+	<div class="portfolio-info">
+		{% include "portfolio/includes/port_list_heading.html" %}
+	</div>
 	{% for port in portfolio_list %}
 		<div class="main-portfolio-container">
 			
@@ -57,6 +60,14 @@
 
 		</div>
 	{% endfor %}
+	{% if portfolio_list.length == 0  %}
+	<div class="no-content">
+		<h3 >
+				<span class="highligher">No Content</span> I am still working on adding new content so be sure to check
+				my blog and my GitHub page for other project whilst I add content here
+			</h3>
+	</div>
+	{% endif %}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>

@@ -250,6 +250,11 @@ ul.navbar-right {
 }
 /*Portfoliopage Style*/
 
+.portfolio-info{
+    width: 92%;
+    margin: auto;
+}
+
 .portfolio-list-page{
     display: flex;
     flex-wrap: wrap;
