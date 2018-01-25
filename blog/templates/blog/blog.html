@@ -44,11 +44,11 @@
     </div>
 
     <div class="blog-list-body">
-		 <div class = "blog-list-preview content-markdown"><p>{{post.body| safe|slice:":500"}}...</p>
+		 <div class = "blog-list-preview content-markdown"><p>{{post.body|truncatechars:250}}</p>
 				{% if post.draft %}<em><h4>Draft</h4></em>{%endif%}
 		</div>
 		<div class="blog-list-contiune">
-		    <a href="/blog/{{post.slug}}" class="blog-btn-style">Contiune Reading</a>
+		    <a href="/blog/{{post.slug}}" class="blog-btn-style">Continue Reading</a>
 		</div>
 
 		{% if user.is_authenticated %}
