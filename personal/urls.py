@@ -8,19 +8,21 @@ app_name = 'personal'
 
 urlpatterns = [
 
-	re_path(r'^$', views.index, name='index'),
+	path('', views.index, name='index'),
 
-	re_path(r'^userlounge/$', views.userarea, name='lounge'),
+	path('userlounge', views.userarea, name='lounge'),
 
-	re_path(r'^contact/$', views.contact, name='contact'),
+	path('contact', views.contact, name='contact'),
 
-	re_path(r'^register/$', views.UserFormView.as_view(), name='register'),
+	path('register', views.UserFormView.as_view(), name='register'),
 
-	re_path(r'^about/$', views.aboutView, name='about'),
+	path('about', views.aboutView, name='about'),
+
+	path('resume', views.resumeView, name='resume'),	
 
 	path('login', views.LoginFormView.as_view(), name='login'),
  
- 	re_path(r'^logout/$', views.logoutView, name='logout'),
+ 	path('logout', views.logoutView, name='logout'),
 
 
 

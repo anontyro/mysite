@@ -22,6 +22,9 @@ def userarea(request):
 def aboutView(request):
 	return render(request, 'personal/about.html')
 
+def resumeView(request):
+	return render(request, 'personal/resume.html')
+
 def contact(request):
 	return render(request, 'personal/basic.html', {'content':['You can contact me directly at: ','alexwilkinson@gmail.com']})
 

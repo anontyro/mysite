@@ -485,6 +485,34 @@ h2 {
     }
 }
 
+/* Resume */
+.resume-body{
+    width: 80%;
+    margin: auto;
+}
+.resume-header{
+    display: flex;
+}
+.resume-photo-container{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.resume-img{
+    width: 200px; 
+    height: 200px;
+}
+.resume-btn{
+    width: 200px !important;
+    text-align: center;
+}
+.resume-bio-info {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+.resume-side{
+    margin: 10px 0px 10px 0px;
+}
+
 /*Footer styling*/
 footer {
     width: 100%;
