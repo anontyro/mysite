@@ -414,7 +414,7 @@ h2 {
 /* Hide/rearrange for smaller screens */
 @media (max-width: 1000px) {
     .collapsing, .in {
-        background-color: #f7f7f7;
+        background-color: #dddddd;
     }
 
         .collapsing ul li a, .in ul li a {
@@ -422,7 +422,7 @@ h2 {
         }
 
             .collapsing ul li a:hover, .in ul li a:hover {
-                color: #f1f1f1 !important;
+                color: #4196ea !important;
             }
 
     .navbar-header {
@@ -512,7 +512,27 @@ h2 {
 .resume-side{
     margin: 10px 0px 10px 0px;
 }
-
+@media (max-width: 750px) {
+    .resume-header{
+        flex-wrap: wrap;
+    }
+    .resume-photo-container{
+        width: 100%;
+    }
+    .resume-img {
+        width: 230px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .resume-btn {
+        width: 230px !important;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 /*Footer styling*/
 footer {
     width: 100%;
@@ -565,3 +585,4 @@ ul#wmd-button-row {
 .wmd-panel {
     padding: 5px;
 }
+
