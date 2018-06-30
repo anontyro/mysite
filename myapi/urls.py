@@ -10,5 +10,6 @@ app_name='myapi'
 router = routers.SimpleRouter()
 router.register(r'posts',views.PostViewSet)
 router.register(r'portfolio', views.PortfolioViewSet)
+router.register(r'postnew',views.PostNewViewSet.as_view(), 'postnew')
 
 urlpatterns = router.urls

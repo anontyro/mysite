@@ -1,3 +1,8 @@
 from django.test import TestCase
+from blog import models as bModels
+from portfolio import models as pModels
 
-# Create your tests here.
+# class ModelTestCase(TestCase):
+
+#     def setUp(self):
+#         self.
